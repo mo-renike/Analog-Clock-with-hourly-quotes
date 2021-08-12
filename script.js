@@ -7,6 +7,7 @@ const dateEl = document.querySelector(".date");
 const body = document.querySelector("html");
 const quote = document.querySelector("#quote");
 const quoteTime = document.querySelector("#quoteTime");
+const author = document.querySelector("#author");
 
 // toggler.addEventListener("click", () => {
 
@@ -104,20 +105,19 @@ setInterval(setTime, 1000);
 getQuote();
 
 async function getQuote() {
-
-// fetch("https://quotes15.p.rapidapi.com/quotes/random/", {
-//   method: "GET",
-//   headers: {
-//     "x-rapidapi-key": "b5955c940amsh9ba067ff07dbc5ap17f2abjsn2acd75e2d6af",
-//     "x-rapidapi-host": "quotes15.p.rapidapi.com",
-//   },
-// })
-//   .then((response) => {
-//     console.log(response);
-//   })
-//   .catch((err) => {
-//     console.error(err);
-//   });
+  // fetch("https://quotes15.p.rapidapi.com/quotes/random/", {
+  //   method: "GET",
+  //   headers: {
+  //     "x-rapidapi-key": "b5955c940amsh9ba067ff07dbc5ap17f2abjsn2acd75e2d6af",
+  //     "x-rapidapi-host": "quotes15.p.rapidapi.com",
+  //   },
+  // })
+  //   .then((response) => {
+  //     console.log(response);
+  //   })
+  //   .catch((err) => {
+  //     console.error(err);
+  //   });
 
   let config = {
     method: "GET",
@@ -132,6 +132,7 @@ async function getQuote() {
     config
   );
   const data = await resp.json();
-  quote.innerHTML = data.content
+  quote.innerHTML = data.content;
+  author.innerHTML = `   ${data.originator.name}`;
 }
 setInterval(getQuote, 3600000);

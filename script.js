@@ -127,6 +127,7 @@ async function getQuote() {
       Accept: "application/JSON",
     },
   };
+
   const resp = await fetch(
     "https://quotes15.p.rapidapi.com/quotes/random/",
     config
